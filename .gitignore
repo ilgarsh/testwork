@@ -1,3 +1,9 @@
-.idea
-/task_one/out/
-/task_one/task_one.iml
+# Created by .ignore support plugin (hsz.mobi)
+### Java template
+# Compiled class file
+*.class
+
+
+.gitignore
+.idea/
+task_one/.idea/artifacts/
