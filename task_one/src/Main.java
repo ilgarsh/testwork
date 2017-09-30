@@ -4,6 +4,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+//TODO: add search text in file use Forward/Back
+//TODO: add open large files
+
 /**
  * A {@code Main} is entry point for application
  */

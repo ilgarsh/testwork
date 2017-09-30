@@ -1,6 +1,7 @@
 import com.sun.istack.internal.NotNull;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -33,6 +34,7 @@ public class ComplexApplicationController implements Initializable{
     @FXML TextField textFieldSearchText;
     @FXML TextField textFieldExtensionFile;
     @FXML TextField textFieldDirectory;
+    @FXML ProgressBar progressBar;
 
     @FXML private TabPane tabPane;
 
@@ -55,15 +57,46 @@ public class ComplexApplicationController implements Initializable{
      * and if is clicked build tree of files.
      */
     @FXML private void handleButtonFind() {
-        String searchText = textFieldSearchText.getText();
-        String extension = textFieldExtensionFile.getText().equals("") ? "log" : textFieldExtensionFile.getText();
-        Path directory = Paths.get(textFieldDirectory.getText());
-        try {
-            Finder finder = new Finder(directory, searchText, extension);
-            setTreeView(finder.getFoundFiles(), directory);
-        } catch (NullPointerException e) {
-            System.out.println("No such file: " + directory);
-        }
+        Task<Void> taskFindAndSet = new Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                String searchText = textFieldSearchText.getText();
+                String extension = textFieldExtensionFile.getText().equals("") ? "log" : textFieldExtensionFile.getText();
+                Path directory = Paths.get(textFieldDirectory.getText());
+                try {
+                    Finder finder = new Finder(directory, searchText, extension);
+                    setTreeView(finder.getFoundFiles(), directory);
+                } catch (NullPointerException e) {
+                    System.out.println("No such file: " + directory);
+                }
+                return null;
+            }
+        };
+        Thread thFind = new Thread(taskFindAndSet);
+        thFind.setDaemon(true);
+        thFind.start();
+
+
+        Task<Void> taskUpdateProgressBar = new Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                double d = 0;
+                while (!taskFindAndSet.isDone()) {
+                    progressBar.setProgress(d);
+                    if (d <= 1) {
+                        d += 0.01;
+                    } else {
+                        d = 0;
+                    }
+                    Thread.sleep(100);
+                }
+                progressBar.setProgress(1);
+                return null;
+            }
+        };
+        Thread thProgress = new Thread(taskUpdateProgressBar);
+        thProgress.setDaemon(true);
+        thProgress.start();
     }
 
     /**
@@ -115,7 +148,8 @@ public class ComplexApplicationController implements Initializable{
         // Accept clicks only on node cells, and not on empty spaces of the TreeView
         if (node instanceof Text || (node instanceof TreeCell && ((TreeCell) node).getText() != null)) {
             TreeItem item = (TreeItem) treeView.getSelectionModel().getSelectedItem();
-            Path path = Paths.get(getFullPath(item));
+            if (getFullPath(item) != null) {
+                Path path = Paths.get(getFullPath(item));
                 Tab tab = new Tab();
                 try {
                     StringBuilder sb = new StringBuilder();
@@ -134,6 +168,7 @@ public class ComplexApplicationController implements Initializable{
                 } catch (IOException e) {
                     System.out.println("Some problems with: " + path);
                 }
+            }
         }
     }
 
@@ -151,7 +186,13 @@ public class ComplexApplicationController implements Initializable{
             sb.insert(0, File.separator);
             item = item.getParent();
         }
-        //delete duplicate
-        return sb.deleteCharAt(0).toString();
+
+        //check for exception
+        if (sb.length() > 0) {
+            //delete duplicate
+            return sb.deleteCharAt(0).toString();
+        } else {
+            return null;
+        }
     }
 }

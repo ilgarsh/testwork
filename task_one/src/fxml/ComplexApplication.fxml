@@ -1,60 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
 <?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
 
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
-    fx:controller="ComplexApplicationController">
-  <children>
-    <?import java.net.URL?>
-    <MenuBar xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
-      <menus>
+      fx:controller="ComplexApplicationController">
+    <stylesheets>
+        <URL value="@ComplexApplication.css"/>
+    </stylesheets>
+    <MenuBar>
         <Menu id="menuTools" mnemonicParsing="false" text="Tools">
-          <items>
             <Menu mnemonicParsing="false" text="Find">
-              <items>
-                <MenuItem fx:id="findMenuItem" mnemonicParsing="false">
-                  <graphic>
-                    <GridPane>
-                      <Label text="Search: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                      <TextField fx:id="textFieldSearchText" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-                      <Label text="Directory: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                      <TextField fx:id="textFieldDirectory" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                      <Label text="Extension ('txt', 'log', etc): " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                      <TextField fx:id="textFieldExtensionFile" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                      <Button fx:id="buttonFind" text="Search"
-                              GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="3"
-                              onAction="#handleButtonFind"/>
-                    </GridPane>
-                  </graphic>
+                <MenuItem mnemonicParsing="false">
+                    <graphic>
+                        <GridPane>
+                            <Label text="Search: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <TextField fx:id="textFieldSearchText" GridPane.columnIndex="1"
+                                       GridPane.rowIndex="0"/>
+                            <Label text="Directory: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <TextField fx:id="textFieldDirectory" GridPane.columnIndex="1"
+                                       GridPane.rowIndex="1"/>
+                            <Label text="Extension ('txt', 'log', etc): " GridPane.columnIndex="0"
+                                   GridPane.rowIndex="2"/>
+                            <TextField fx:id="textFieldExtensionFile" GridPane.columnIndex="1"
+                                       GridPane.rowIndex="2"/>
+                            <Button onAction="#handleButtonFind" text="Search"
+                                    GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="3"/>
+                        </GridPane>
+                    </graphic>
                 </MenuItem>
-              </items>
             </Menu>
-            <MenuItem id="menuItemQuit" mnemonicParsing="false" onAction="#handleToolsQuit" text="Quit" fx:id="toolsQuit" />
-          </items>
+            <MenuItem id="menuItemQuit" mnemonicParsing="false" onAction="#handleToolsQuit" text="Quit"/>
         </Menu>
-      </menus>
     </MenuBar>
     <SplitPane dividerPositions="0.5" focusTraversable="true" prefHeight="576.0" prefWidth="900.0">
-      <items>
-        <TreeView xmlns="http://javafx.com/javafx"
-                  xmlns:fx="http://javafx.com/fxml"
-                  prefHeight="400.0" prefWidth="600.0"
-                  fx:id="treeView">
-
-        </TreeView>
-        <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" />
-      </items>
+        <TreeView fx:id="treeView" prefHeight="400.0" prefWidth="600.0"/>
+        <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE"/>
     </SplitPane>
-    <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" />
-  </children>
-  <stylesheets>
-    <URL value="@ComplexApplication.css" />
-  </stylesheets>
+    <ProgressBar fx:id="progressBar" prefWidth="917.0" progress="0.0"/>
 </VBox>
