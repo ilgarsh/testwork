@@ -57,7 +57,7 @@ public class ComplexApplicationController implements Initializable{
      * and if is clicked build tree of files.
      */
     @FXML private void handleButtonFind() {
-        Task<Void> taskFindAndSet = new Task<>() {
+        Task<Void> taskFindAndSet = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
                 String searchText = textFieldSearchText.getText();
@@ -77,7 +77,7 @@ public class ComplexApplicationController implements Initializable{
         thFind.start();
 
 
-        Task<Void> taskUpdateProgressBar = new Task<>() {
+        Task<Void> taskUpdateProgressBar = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
                 double d = 0;
