@@ -17,17 +17,11 @@ public class DirectoryController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Directory> directories = new ArrayList<Directory>();
-        directories.add(new Directory(1, "a1", 0));
-        directories.add(new Directory(1, "a1", 0));
-        directories.add(new Directory(1, "a1", 0));
-        directories.add(new Directory(1, "a1", 0));
-        directories.add(new Directory(1, "a1", 0));
-        directories.add(new Directory(1, "a1", 0));
-        directories.add(new Directory(1, "a1", 0));
-        directories.add(new Directory(1, "a1", 0));
+        Directory root = new Directory(0, "root", -1);
+        root.setShowChild(true);
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("tree.jsp");
-        req.setAttribute("directories", directories);
+        req.setAttribute("directory", root);
         RequestDispatcher d2 = req.getRequestDispatcher("index.jsp");
         d2.forward(req, resp);
     }
