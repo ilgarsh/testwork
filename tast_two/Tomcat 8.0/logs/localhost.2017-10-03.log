@@ -1,6 +1,6 @@
-03-Oct-2017 01:16:15.161 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 01:16:15.161 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at DirectoryController.doPost(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
@@ -25,9 +25,9 @@
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-03-Oct-2017 01:18:01.340 SEVERE [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 01:18:01.340 SEVERE [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at DirectoryController.doPost(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
@@ -52,9 +52,9 @@
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-03-Oct-2017 01:18:27.070 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 01:18:27.070 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at DirectoryController.doPost(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
@@ -79,9 +79,9 @@
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-03-Oct-2017 01:19:57.010 SEVERE [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 01:19:57.010 SEVERE [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at DirectoryController.doPost(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
@@ -106,9 +106,9 @@
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-03-Oct-2017 01:20:05.724 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 01:20:05.724 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at DirectoryController.doPost(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
@@ -133,9 +133,9 @@
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-03-Oct-2017 01:20:09.447 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 01:20:09.447 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at DirectoryController.doPost(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
@@ -160,9 +160,9 @@
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-03-Oct-2017 01:20:12.525 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 01:20:12.525 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at DirectoryController.doPost(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
@@ -187,10 +187,10 @@
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-03-Oct-2017 03:54:28.099 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 03:54:28.099 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at store.DirectoryDaoH2.addDirectory(Unknown Source)
-	at DirectoryController.doPost(Unknown Source)
+	at DirectoryDaoH2.addDirectory(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
@@ -215,10 +215,10 @@
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-03-Oct-2017 03:54:49.987 SEVERE [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 03:54:49.987 SEVERE [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at store.DirectoryDaoH2.addDirectory(Unknown Source)
-	at DirectoryController.doPost(Unknown Source)
+	at DirectoryDaoH2.addDirectory(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
@@ -243,9 +243,9 @@
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-03-Oct-2017 04:01:27.538 SEVERE [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 04:01:27.538 SEVERE [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at DirectoryController.doPost(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
@@ -270,9 +270,9 @@
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-03-Oct-2017 12:55:49.971 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [DirectoryController] in context with path [] threw exception
+03-Oct-2017 12:55:49.971 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [main.DirectoryController] in context with path [] threw exception
  java.lang.NullPointerException
-	at DirectoryController.doPost(Unknown Source)
+	at main.DirectoryController.doPost(Unknown Source)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)

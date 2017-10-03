@@ -1,9 +1,13 @@
-package store;
+package main.store;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * The {@code DirectoryDB} is class that set connection with DB and
+ * create table "Directory" in DB.
+ */
 public class DirectoryDB {
     public static final DirectoryDB INSTANCE = new DirectoryDB();
 
@@ -31,6 +35,10 @@ public class DirectoryDB {
         return connection;
     }
 
+    /**
+     * DROP TABLE needs for test. Delete this line to save data.
+     * @throws SQLException
+     */
     private void createTable() throws SQLException {
         connection.prepareStatement("DROP TABLE IF EXISTS DIRECTORY").execute();
         connection.prepareStatement("CREATE TABLE DIRECTORY(ID INT AUTO_INCREMENT, " +

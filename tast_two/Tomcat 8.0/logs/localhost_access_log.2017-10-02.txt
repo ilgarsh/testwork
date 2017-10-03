@@ -84,10 +84,10 @@
 0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:22:32 +0300] "GET /sarvar?add_directory_path_id=1&add_directory_name= HTTP/1.1" 200 2803
 0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:24:51 +0300] "GET /sarvar?add_directory_path_id=1&add_directory_name= HTTP/1.1" 200 2812
 0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:32:26 +0300] "GET /sarvar?add_directory_path_id=1&add_directory_name= HTTP/1.1" 200 3011
-0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:32:28 +0300] "POST /DirectoryController.java HTTP/1.1" 404 1042
+0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:32:28 +0300] "POST /main.DirectoryController.java HTTP/1.1" 404 1042
 0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:34:08 +0300] "GET /sarvar?add_directory_path_id=1&add_directory_name= HTTP/1.1" 200 3011
-0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:34:11 +0300] "POST /DirectoryController.java HTTP/1.1" 404 1042
-0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:34:11 +0300] "POST /DirectoryController.java HTTP/1.1" 404 1042
+0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:34:11 +0300] "POST /main.DirectoryController.java HTTP/1.1" 404 1042
+0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:34:11 +0300] "POST /main.DirectoryController.java HTTP/1.1" 404 1042
 0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:35:14 +0300] "GET /sarvar?add_directory_path_id=1&add_directory_name= HTTP/1.1" 200 2987
 0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:35:15 +0300] "POST /sarvar?add_directory_path_id=1&add_directory_name= HTTP/1.1" 200 -
 0:0:0:0:0:0:0:1 - - [02/Oct/2017:11:35:17 +0300] "POST /sarvar?add_directory_path_id=1&add_directory_name= HTTP/1.1" 200 -

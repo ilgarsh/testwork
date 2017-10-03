@@ -1,7 +1,9 @@
+package main;
+
 import com.google.gson.Gson;
-import store.Directory;
-import store.DirectoryDAO;
-import store.DirectoryDaoH2;
+import main.store.Directory;
+import main.store.DirectoryDAO;
+import main.store.DirectoryDaoH2;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
+/**
+ * A {@code DirectoryController} that handle command from client
+ * and display directories.
+ */
 @WebServlet("")
 public class DirectoryController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -62,6 +67,11 @@ public class DirectoryController extends HttpServlet {
                     json = new Gson().toJson(current);
                     resp.setContentType("application/json");
                     resp.setCharacterEncoding("UTF-8");
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     resp.getWriter().print(json);
                     return;
 
@@ -107,7 +117,11 @@ public class DirectoryController extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
-    //????
+    /**
+     * The {@code depthCopy(dirs)} is method that depth copy dirs to new ListDirectory and return it.
+     * @param dirs directory that copy
+     * @return
+     */
     private List<Directory> depthCopy(List<Directory> dirs) {
         List<Directory> directories = new ArrayList<>(dirs.size());
         for (Directory nextDir : dirs ) {
@@ -121,6 +135,13 @@ public class DirectoryController extends HttpServlet {
         return directories;
     }
 
+    /**
+     * The {@code updateID} needs for remove
+     * integrity violation in Database.
+     * @param dir root directory
+     * @param parent parent's id for {@code dir}
+     * @return
+     */
     private Directory updateID(Directory dir, int parent) {
         dir.setId(divID++);
         dir.setParent(parent);

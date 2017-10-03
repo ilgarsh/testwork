@@ -1,9 +1,12 @@
-package store;
+package main.store;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://en.wikipedia.org/wiki/Data_access_object
+ */
 public class DirectoryDaoH2 implements DirectoryDAO {
 
     private Connection connection;

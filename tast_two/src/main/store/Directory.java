@@ -1,8 +1,11 @@
-package store;
+package main.store;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A {@code Directory}.
+ */
 public class Directory {
     private int id;
     private String name;

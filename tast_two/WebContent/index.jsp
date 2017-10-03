@@ -5,7 +5,7 @@
     <script src="jQuery-contextMenu/dist/jquery.contextMenu.min.js"></script>
     <script src="jQuery-contextMenu/dist/jquery.ui.position.min.js"></script>
     <link rel="stylesheet" href="jQuery-contextMenu/dist/jquery.contextMenu.min.css"/>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style1.css">
     <meta charset="UTF-8">
     <title>Task Two</title>
     <script>
@@ -87,17 +87,22 @@
             });
 
             $(document).on('click', '.directory', function(e){
-                selectDiv(e);
                 $.post("", {
                     command: "show_child",
                     div_id: this.id,
                     success: function () {
-                        e.currentTarget.classList.add('open');
+                        var div = e.currentTarget;
+                        div.classList.add('open');
+                        if (!selectDiv(e)) {
+                            openFolderAnimation(div);
+                        }
                     }
                 }, function (response) {
+                    var parent = document.getElementById(response.id);
+                    removeOpenFolderAnimation(parent);
                     for (var i = 0; i < response.childs.length; i++) {
                         if (!document.getElementById(response.childs[i].id)) {
-                            createDirectory(document.getElementById(response.id),
+                            createDirectory(parent,
                                 response.childs[i]);
                         }
                     }
@@ -105,7 +110,40 @@
             })
         });
 
+        function openFolderAnimation(div) {
+            var icon_div;
+            console.log(div.childNodes);
+            if (div.childNodes) {
+                for (var i = 0; i < div.childNodes.length; i++) {
+                    var child = div.childNodes;
+                    if (child[i].classList && child[i].classList.contains('directory_icon')) {
+                        icon_div = div.childNodes[i];
+                        icon_div.classList.remove('directory_icon');
+                        icon_div.classList.add('loader');
+                        break;
+                    }
+                }
+            }
+        }
+
+        function removeOpenFolderAnimation(div) {
+            var icon_div;
+            console.log(div.childNodes);
+            if (div.childNodes) {
+                for (var i = 0; i < div.childNodes.length; i++) {
+                    var child = div.childNodes;
+                    if (child[i].classList && child[i].classList.contains('loader')) {
+                        icon_div = div.childNodes[i];
+                        icon_div.classList.remove('loader');
+                        icon_div.classList.add('directory_icon');
+                        break;
+                    }
+                }
+            }
+        }
+
         function selectDiv(e) {
+            var isLoaded = false;
             e.stopPropagation();
             if (selectedDiv && selectedDiv.classList.contains('selected')) {
                 selectedDiv.classList.remove('selected');
@@ -115,14 +153,17 @@
             for (var i = 0; i < selectedDiv.childNodes.length; i++) {
                 if (selectedDiv.childNodes[i].classList !== undefined) {
                     if (selectedDiv.childNodes[i].classList.contains('show')) {
+                        isLoaded = true;
                         selectedDiv.childNodes[i].classList.remove('show');
                         selectedDiv.childNodes[i].classList.add('hide');
                     } else if (selectedDiv.childNodes[i].classList.contains('hide')) {
+                        isLoaded = true;
                         selectedDiv.childNodes[i].classList.remove('hide');
                         selectedDiv.childNodes[i].classList.add('show');
                     }
                 }
             }
+            return isLoaded;
         }
 
         //---------CREATE, DELETE, MOVE AND CHANGE DIRECTORY-----------//

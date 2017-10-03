@@ -1,7 +1,10 @@
-package store;
+package main.store;
 
 import java.util.List;
 
+/**
+ * https://en.wikipedia.org/wiki/Data_access_object
+ */
 public interface DirectoryDAO {
     public List<Directory> getAllDirectories();
     public Directory getDirectory(int id);

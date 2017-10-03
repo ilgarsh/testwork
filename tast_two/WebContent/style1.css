@@ -1,0 +1,56 @@
+body {
+    padding: 50px;
+}
+.directory {
+    margin: 10px 10px;
+    height: 25px;
+    min-width: 100px;
+    clear: both;
+    cursor:pointer;
+}
+.directory > .directory {
+    margin-left: 30px;
+}
+.directory > .directory_icon {
+    float: left;
+    width: 30px;
+    height: 30px;
+    background-image: url("img/close_folder.png");
+    background-size: cover;
+}
+.directory > .directory_name {
+    padding: 5px;
+    float: left;
+    min-width: 30px;
+    height: 20px;
+}
+.selected {
+    background-color: lightblue;
+}
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.loader {
+    border: 3px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 3px solid blue;
+    border-bottom: 3px solid blue;
+    width: 20px;
+    height: 20px;
+    float: left;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

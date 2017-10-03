@@ -17,7 +17,7 @@
                             <Label text="Search: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
                             <TextField fx:id="textFieldSearchText" GridPane.columnIndex="1"
                                        GridPane.rowIndex="0"/>
-                            <Label text="store.Directory: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <Label text="Directory: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
                             <TextField fx:id="textFieldDirectory" GridPane.columnIndex="1"
                                        GridPane.rowIndex="1"/>
                             <Label text="Extension ('txt', 'log', etc): " GridPane.columnIndex="0"
