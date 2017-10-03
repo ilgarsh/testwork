@@ -36,6 +36,7 @@ public class DirectoryDaoH2 implements DirectoryDAO {
         try {
             PreparedStatement preparedStatement =
                     connection.prepareStatement("SELECT * FROM DIRECTORY WHERE ID=?");
+            preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
                 directory = new Directory(rs.getInt("ID"),
@@ -54,12 +55,16 @@ public class DirectoryDaoH2 implements DirectoryDAO {
         try {
             PreparedStatement preparedStatement =
                     connection.prepareStatement("SELECT * FROM DIRECTORY WHERE PARENT=?");
+            preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Directory directory = new Directory(rs.getInt("ID"),
                         rs.getString("NAME"),
                         rs.getInt("PARENT"));
-                directories.add(directory);
+
+                if (directory.getId() != id) {
+                    directories.add(directory);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,9 +76,24 @@ public class DirectoryDaoH2 implements DirectoryDAO {
     public void addDirectory(Directory directory) {
         try {
             PreparedStatement preparedStatement =
-                    connection.prepareStatement("INSERT INTO DIRECTORY (NAME, PARENT) VALUES(?, ?)");
-            preparedStatement.setString(1, directory.getName());
-            preparedStatement.setInt(2, directory.getParent());
+                    connection.prepareStatement("INSERT INTO DIRECTORY (ID, NAME, PARENT) VALUES(?, ?, ?)");
+            preparedStatement.setInt(1, directory.getId());
+            preparedStatement.setString(2, directory.getName());
+            preparedStatement.setInt(3, directory.getParent());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateDirectoryName(int id, String newName) {
+        try {
+            PreparedStatement preparedStatement =
+                    connection.prepareStatement("UPDATE DIRECTORY SET NAME=? WHERE ID=?");
+            preparedStatement.setString(1, newName );
+            preparedStatement.setInt(2, id);
+
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,13 +101,12 @@ public class DirectoryDaoH2 implements DirectoryDAO {
     }
 
     @Override
-    public void updateDirectory(Directory directory) {
+    public void updateDirectoryParent(int id, int parent) {
         try {
             PreparedStatement preparedStatement =
-                    connection.prepareStatement("UPDATE DIRECTORY SET NAME=?, PARENT=? WHERE ID=?");
-            preparedStatement.setString(1, directory.getName());
-            preparedStatement.setInt(2, directory.getParent());
-            preparedStatement.setInt(3, directory.getId());
+                    connection.prepareStatement("UPDATE DIRECTORY SET PARENT=? WHERE ID=?");
+            preparedStatement.setInt(1,  parent);
+            preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

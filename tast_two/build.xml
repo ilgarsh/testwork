@@ -8,6 +8,7 @@
     <pathelement location="Tomcat 8.0/lib/catalina.jar"/>
     <pathelement location="Tomcat 8.0/lib/tomcat-jdbc.jar"/>
     <pathelement location="WebContent/WEB-INF/lib/jstl-1.2.jar"/>
+    <pathelement location="lib/gson-2.8.2.jar"/>
   </path>
 
   <target name="compile">

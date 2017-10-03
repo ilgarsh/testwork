@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="jQuery-contextMenu/dist/jquery.contextMenu.min.js"></script>
+    <script src="jQuery-contextMenu/dist/jquery.ui.position.min.js"></script>
+    <link rel="stylesheet" href="jQuery-contextMenu/dist/jquery.contextMenu.min.css"/>
+    <script>
+        var selectedDiv;
+        $(function() {
+            $.contextMenu({
+                selector: '.directory',
+                callback: function(key, options) {
+                    var div_name = prompt("Please enter directory name");
+                    $.post("",
+                        {
+                            command: key,
+                            div_id: options.$trigger.attr("id"),
+                            div_name: div_name
+                        })
+                },
+                items: {
+                    "add": {name: "Add", icon: "add"},
+                    "edit": {name: "Edit", icon: "edit"},
+                    "copy": {name: "Copy", icon: "copy"},
+                    "paste": {name: "Paste", icon: "paste"},
+                    "delete": {name: "Delete", icon: "delete"}
+                }
+            });
+
+            $('.directory').on('click', function(e){
+                e.stopPropagation();
+                if (selectedDiv) {
+                    selectedDiv.removeClass('selected');
+                }
+                console.log(this.id);
+                selectedDiv = $(this).children(".directory_name");
+                selectedDiv.addClass('selected');
+                var showOrHideDiv = $(this).children(".directory");
+                if (showOrHideDiv.hasClass("show")) {
+                    showOrHideDiv.removeClass("show");
+                    showOrHideDiv.addClass("hide");
+                } else if (showOrHideDiv.hasClass('hide')) {
+                    showOrHideDiv.removeClass("hide");
+                    showOrHideDiv.addClass("show");
+                } else {
+                    showOrHideDiv.addClass('show');
+                    $.post("", {
+                        command: "show_child",
+                        div_id: this.id
+                    }, function (response) {
+                        console.log(response);
+                    })
+                }
+            })
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <title>Task Two</title>
+</head>
+<body>
+<div class="directory" id="0">
+    <div class="directory_icon"></div>
+    <div class="directory_name">Root</div>
+</div>
+</body>
+</html>

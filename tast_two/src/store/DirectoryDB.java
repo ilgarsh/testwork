@@ -15,14 +15,14 @@ public class DirectoryDB {
     private final Connection connection;
 
     private final String TABLE_NAME = "DIRECTORY";
-    private final String[] COLUMNS = {"ID", "NAME", "PARENT"};
-
 
     private DirectoryDB() {
         connection = getDBConnection();
         try {
             createTable();
+            System.out.println(TABLE_NAME + " IS CREATED.");
         } catch (SQLException e) {
+            System.out.println("DB is not created");
             e.printStackTrace();
         }
     }
@@ -32,9 +32,12 @@ public class DirectoryDB {
     }
 
     private void createTable() throws SQLException {
-        connection.prepareStatement("CREATE TABLE IF NOT EXISTS DIRECTORY(ID INT AUTO_INCREMENT, " +
+        connection.prepareStatement("DROP TABLE IF EXISTS DIRECTORY").execute();
+        connection.prepareStatement("CREATE TABLE DIRECTORY(ID INT AUTO_INCREMENT, " +
                 "NAME VARCHAR(255)," +
-                "PARENT INT, FOREIGN KEY (PARENT) REFERENCES DIRECTORY(ID) ON DELETE CASCADE ON UPDATE CASCADE);");
+                "PARENT INT, FOREIGN KEY (PARENT) REFERENCES DIRECTORY(ID));").execute();
+        connection
+                .prepareStatement("INSERT INTO DIRECTORY (ID, NAME, PARENT) VALUES(0, 'ROOT', 0)").execute();
     }
 
     private Connection getDBConnection() {
@@ -42,12 +45,12 @@ public class DirectoryDB {
         try {
             Class.forName(DB_DRIVER);
         } catch (ClassNotFoundException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
         try {
             dbConnection = DriverManager.getConnection(DB_URL, DB_LOGIN, DB_PASSWORD);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
         return dbConnection;
     }

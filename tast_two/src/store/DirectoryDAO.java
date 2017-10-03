@@ -7,6 +7,7 @@ public interface DirectoryDAO {
     public Directory getDirectory(int id);
     public List<Directory> getAllChilds(int id);
     public void addDirectory(Directory directory);
-    public void updateDirectory(Directory directory);
+    public void updateDirectoryName(int id, String name);
+    public void updateDirectoryParent(int id, int parent);
     public void deleteDirectory(int directoryID);
 }

@@ -1,0 +1,8 @@
+[2017-10-02 12:05:08] [info]  [59128] Commons Daemon procrun (1.0.15.0 64-bit) started
+[2017-10-02 12:05:08] [info]  [59128] Debugging 'Tomcat8' service...
+[2017-10-02 12:05:08] [info]  [59128] Starting service...
+[2017-10-02 12:05:08] [error] [96028] FindClass org/apache/catalina/startup/Bootstrap failed
+[2017-10-02 12:05:08] [error] [59128] Failed to start Java
+[2017-10-02 12:05:08] [error] [59128] ServiceStart returned 4
+[2017-10-02 12:05:08] [info]  [59128] Debug service finished with exit code 4
+[2017-10-02 12:05:08] [error] [59128] Commons Daemon procrun failed with exit value: 3 (Failed to run service as console application)

@@ -1,28 +1,28 @@
 package store;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Directory {
     private int id;
     private String name;
-    private int parent;
-    private boolean showChild;
+    private Integer parent;
     private List<Directory> childs;
 
     Directory() {}
 
-    public Directory(int id, String name, int parent) {
+    public Directory(int id, String name, Integer parent) {
         this.id = id;
         this.name = name;
         this.parent = parent;
-        this.showChild = false;
+        childs = new ArrayList<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public int getParent() {
+    public Integer getParent() {
         return parent;
     }
 
@@ -30,12 +30,12 @@ public class Directory {
         return id;
     }
 
-    public void setShowChild(boolean showChild) {
-        this.showChild = showChild;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public boolean isShowChild() {
-        return showChild;
+    public void setParent(Integer parent) {
+        this.parent = parent;
     }
 
     public List<Directory> getChilds() {
@@ -44,5 +44,12 @@ public class Directory {
 
     public void setChilds(List<Directory> childs) {
         this.childs = childs;
+    }
+
+    @Override
+    public String toString() {
+        return "id=" + id +
+                ", parent=" + parent +
+                ", childs: " + childs;
     }
 }
